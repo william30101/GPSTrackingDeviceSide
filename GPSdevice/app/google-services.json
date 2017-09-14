@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "27601170257-eqt4s4m60aud9fkp2pveqdgc1deq23iu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gpsdevice.chenyue.www.gpsdevice",
+            "certificate_hash": "d05bf51e620fa96a17601907baffb7b153e89557"
+          }
+        },
+        {
           "client_id": "27601170257-l0ncjfcrqnka1c25201tbjeg4je0m0fp.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "27601170257-l0ncjfcrqnka1c25201tbjeg4je0m0fp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

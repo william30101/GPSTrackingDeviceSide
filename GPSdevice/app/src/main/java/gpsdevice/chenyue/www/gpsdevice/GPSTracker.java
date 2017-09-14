@@ -36,6 +36,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -407,6 +412,8 @@ public class GPSTracker extends AppCompatActivity {
                             mLongitudeLabel + " " + mCurrentLocation.getLongitude()+ " , " +
                             mAltitudeLabel + " : " + mCurrentLocation.getAltitude() + " , " +
                             mLastUpdateTimeLabel + " : " + mLastUpdateTime);
+
+            updateToFirebase();
         }
     }
 
@@ -565,5 +572,41 @@ public class GPSTracker extends AppCompatActivity {
                         });
             }
         }
+    }
+
+    private void updateToFirebase(){
+
+
+
+
+        // Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message");
+
+        String updateStr = "{" + "\"" + mLatitudeLabel + "\"" +":" + mCurrentLocation.getLatitude() + "," +
+                "\"" + mLongitudeLabel + "\"" + ":" + mCurrentLocation.getLongitude()+ "," +
+                "\"" + mAltitudeLabel + "\"" +  ":" + mCurrentLocation.getAltitude() +  "," +
+                "\"" + mLastUpdateTimeLabel + "\"" + ":" + mLastUpdateTime + "}";
+
+        Log.v(mTag, updateStr);
+
+        myRef.setValue(updateStr);
+
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String value = dataSnapshot.getValue(String.class);
+                Log.d("William", "Value is: " + value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("William", "Failed to read value.", error.toException());
+            }
+        });
     }
 }
