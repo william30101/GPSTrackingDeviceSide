@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "27601170257",
+    "firebase_url": "https://gpstracking-177915.firebaseio.com",
+    "project_id": "gpstracking-177915",
+    "storage_bucket": "gpstracking-177915.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27601170257:android:6ad9c91456733542",
+        "android_client_info": {
+          "package_name": "gpsdevice.chenyue.www.gpsdevice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "27601170257-l0ncjfcrqnka1c25201tbjeg4je0m0fp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTXjaCRUUyl8DmN2Q3uBSMJIeJE9t25Vs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
